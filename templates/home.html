@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="home-body">
+        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+    <header class="home-header">
+        <div class="home-title">Dashboard</div>
+    </header>
+    <main class="dashboard">
+        <!-- Welcome box with Excel insert -->
+        <section class="welcome-card">
+            <div class="welcome-left">
+                <p class="welcome-hello" id="welcomeText">Welcome, {{ session['user'] }}<i class="fa-solid fa-star"></i></p>
+                
+                <p class="welcome-sub">
+                    You have successfully logged in. Insert an Excel file to update the data table.
+                </p>
+                <p class="excel-format">
+                    Header Requirements:
+                </p>
+                <ol>
+                    <li> Date </li>
+                    <li> Product name / ID </li>
+                    <li> Unit price ($) </li>
+                    <li> Quantity </li>
+                </ol>
+
+
+                <div class="excel-box" id="excelBox">
+                    <div>
+                        <div class="insert-excel">Inserted Excel File</div>
+                        <div class="file-info" id="fileName">No file selected</div>
+                    </div>
+
+                    <div class="excel-button">
+                        <input id="excelInput" type="file" accept=".xls,.xlsx,.csv" style="display:none" />
+                        <button class="btn-insert" id="insertBtn">Insert Excel</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="sections">
+            <!-- Graph Card -->
+            <div class="card graph-card">
+                <h3 style="color:#008B8B; font-size:2em;">Graph</h3>
+                <canvas id="expenseChart" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Analysis Card -->
+            <aside class="card analysis-card">
+                <h3 style="color:#008B8B; font-size:2em;">Analysis</h3>
+                <p id="highestSpending"> Insert Excel file to start analysis!</p>
+                <p id="lowestSpending"></p>
+                <p id="averageSpending"></p>
+            </aside>
+        </section>
+
+    </main>
+    <script src="{{ url_for('static', filename='script-home.js') }}"></script>
+</body>
+</html>
