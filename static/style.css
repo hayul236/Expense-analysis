@@ -145,8 +145,8 @@ h2 {
 
 .register-box {
     display: flex;
-    justify-content: center; /* horizontal centering */
-    margin: 10% 0;            /* vertical spacing */
+    justify-content: center; 
+    margin: 10% 0;           
 }
 .register-box input {
     width: 270px;
@@ -202,8 +202,8 @@ h2 {
 
 .logout-btn {
     position: absolute;
-    top: 20px;       /* distance from top */
-    right: 20px;     /* distance from right */
+    top: 20px;   
+    right: 20px;    
     background-color: #008B8B;
     color: white;
     padding: 8px 12px;
@@ -216,7 +216,7 @@ h2 {
     font-weight: 700;
 }
 
-/* Main dashboard container */
+
 .dashboard {
     width: 1500px;
     max-width: calc(100% - 40px);
@@ -267,11 +267,11 @@ h2 {
     color:#006662;
 }
 .excel-button{
-    display: flex;            /* enable flex */
-    justify-content: center;  /* center horizontally */
-    gap: 10px;                /* space between input trigger and button */
-    align-items: center;      /* align vertically */
-    width: 100%;              /* optional, makes it span parent width */
+    display: flex;        
+    justify-content: center;  
+    gap: 10px;               
+    align-items: center;      
+    width: 100%;              
 }
 .btn-insert{
     height: 50px;
@@ -305,12 +305,13 @@ color:#008B8B;
 }
 /* Graph card - wider */
 .graph-card {
-    flex: 2.3; /* takes 3 parts of available space */
+    flex: 2.3; /* take 3 parts of available space */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Analysis card - thinner */
 .analysis-card {
-    flex: 1; /* takes 1 part of available space */
+    flex: 1; /* take 1 part of available space */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
 }
