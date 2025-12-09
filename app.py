@@ -6,13 +6,12 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.secret_key = "secret"
 
-# --- DATABASE SETUP ---
+# DB
 conn = sqlite3.connect('users.db', check_same_thread=False)
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT, password TEXT)''')
 conn.commit()
 
-# --- ROUTES ---
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -93,7 +92,9 @@ def upload_excel():
             'dates': summary.iloc[:, 0].astype(str).tolist(),
             'totals': summary['Total'].tolist()
         }
-        # ANALYSIS
+        
+        # Analysis
+        
         # Highest spending date
         highest_idx = summary['Total'].idxmax()
         highest_date = summary.iloc[highest_idx, 0].strftime('%d/%m/%Y')
@@ -125,3 +126,4 @@ def upload_excel():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
